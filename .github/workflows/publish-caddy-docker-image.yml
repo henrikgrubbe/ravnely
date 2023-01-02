@@ -1,4 +1,4 @@
-name: Publish Docker image
+name: Publish Caddy docker image
 
 on:
   push:
@@ -32,7 +32,7 @@ jobs:
             maintainer=${{ github.repository_owner }}
             org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/ravnely/${{ env.IMAGE_NAME }}
             org.opencontainers.image.description=Commit message: ${{ github.event.head_commit.message }}
-          context: .
+          context: ./caddy
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/ravnely/${{ env.IMAGE_NAME }}:latest
