@@ -2,8 +2,8 @@ name: Publish Caddy docker image
 
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
+    paths: ['caddy/**']
 
 jobs:
   build_and_publish:
