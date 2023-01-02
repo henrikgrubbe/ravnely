@@ -1,0 +1,42 @@
+version: "3.4"
+services:
+  caddy:
+    image: ghcr.io/henrikgrubbe/ravnely/caddy:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: always
+
+# Websites
+  breadboard-pc-programmer:
+    image: ghcr.io/henrikgrubbe/breadboard-pc-programmer:latest
+    depends_on:
+      - node-mqtt
+    restart: always
+
+# Services
+  node-mqtt:
+    depends_on:
+      - mqtt
+    image: ghcr.io/henrikgrubbe/node-mqtt:latest
+    environment:
+      PORT: 80
+      MQTT_HOST: mqtt
+      MQTT_PORT: 1883
+    restart: always
+
+# Backing-services
+  mqtt:
+    image: eclipse-mosquitto:latest
+    ports: 
+      - "1883:1883"
+    volumes:
+      - ./volumes/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: always
+
+volumes:
+  caddy_data:
+  caddy_config:
