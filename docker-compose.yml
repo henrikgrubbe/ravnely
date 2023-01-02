@@ -30,6 +30,7 @@ services:
   trash-notifier:
     image: ghcr.io/henrikgrubbe/trash:latest
     environment:
+      NOTIFY_URL: https://notifications.ravnely.fantastiskefroe.dk/api/notifications/topic/trash
       CALENDAR_URL: values=N%C3%A5rupvej%7C21%7C%7C%7C%7C8883%7CGjern%7C22050160%7C784231%7C0
       CALENDAR_BODY: https://www.seerupit.com/toemningskalender/silkeborg/showInfo.php
     restart: always
