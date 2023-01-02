@@ -1,7 +1,7 @@
-mqtt.it.fantastiskefroe.dk {
+http://mqtt.it.fantastiskefroe.dk {
 	reverse_proxy node-mqtt:80
 }
 
-pc.it.fantastiskefroe.dk {
+http://pc.it.fantastiskefroe.dk {
 	reverse_proxy breadboard-pc-programmer:8043
 }
