@@ -3,8 +3,8 @@ services:
   caddy:
     image: ghcr.io/henrikgrubbe/ravnely/caddy:latest
     ports:
-      - "80:80"
-      - "443:443"
+      - "10080:80"
+      - "10443:443"
     volumes:
       - caddy_data:/data
       - caddy_config:/config
