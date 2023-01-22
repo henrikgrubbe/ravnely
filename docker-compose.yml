@@ -16,6 +16,10 @@ services:
       - node-mqtt
     restart: always
 
+  chicken-tracker:
+    image: ghcr.io/henrikgrubbe/chicken-tracker:latest
+    restart: always
+
 # Services
   node-mqtt:
     depends_on:
