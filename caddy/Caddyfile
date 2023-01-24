@@ -9,3 +9,7 @@ http://pc.private.fantastiskefroe.dk {
 http://chicken-tracker.private.fantastiskefroe.dk {
 	reverse_proxy chicken-tracker:8043
 }
+
+http://chicken-data.private.fantastiskefroe.dk {
+	reverse_proxy chicken-data-native:8080
+}
