@@ -56,8 +56,8 @@ services:
     image: postgres:15-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data
-#    ports: 
-#      - 127.0.0.1:15432:5432
+    ports: 
+      - "127.0.0.1:5433:5432"
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-database}
       POSTGRES_USER: ${POSTGRES_USER:-user}
