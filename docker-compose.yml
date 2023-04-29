@@ -53,7 +53,7 @@ services:
     restart: always
 
   postgres:
-    image: postgres:15-alpine
+    image: postgres:alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports: 
