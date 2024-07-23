@@ -5,15 +5,3 @@ http://mqtt.private.fantastiskefroe.dk {
 http://pc.private.fantastiskefroe.dk {
 	reverse_proxy breadboard-pc-programmer:8043
 }
-
-http://chicken-tracker.private.fantastiskefroe.dk {
-	reverse_proxy chicken-tracker:8043
-}
-
-http://olympus.private.fantastiskefroe.dk {
-	reverse_proxy chicken-tracker:8043
-}
-
-http://chicken-data.private.fantastiskefroe.dk {
-	reverse_proxy chicken-data-native:8080
-}
