@@ -16,10 +16,6 @@ services:
       - node-mqtt
     restart: always
 
-  chicken-tracker:
-    image: ghcr.io/henrikgrubbe/chicken-tracker:latest
-    restart: always
-
 # Services
   node-mqtt:
     depends_on:
@@ -31,18 +27,6 @@ services:
       MQTT_PORT: 1883
     restart: always
 
-  chicken-data-native:
-    image: ghcr.io/henrikgrubbe/chicken-data-native:latest
-    depends_on:
-      - postgres
-    environment:
-      POSTGRES_HOST: ${POSTGRES_HOST:-postgres}
-      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
-      POSTGRES_DB: ${POSTGRES_DB:-database}
-      POSTGRES_USER: ${POSTGRES_USER:-user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
-    restart: always
-
 # Backing-services
   mqtt:
     image: eclipse-mosquitto:latest
@@ -52,20 +36,7 @@ services:
       - ./volumes/mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
     restart: always
 
-  postgres:
-    image: postgres:15-alpine
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports: 
-      - "127.0.0.1:5433:5432"
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB:-database}
-      POSTGRES_USER: ${POSTGRES_USER:-user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
-    restart: always
-
 volumes:
   caddy_data:
   caddy_config:
-  postgres_data:
   
